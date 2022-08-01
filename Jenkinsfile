@@ -7,7 +7,7 @@ pipeline
     {
       steps
       {
-        sh 'docker build -t dockerdemo .'
+        sh 'docker build -t dockerdemo32 .'
       }
     }
   }
