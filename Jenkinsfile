@@ -7,7 +7,7 @@ pipeline
     {
       steps
       {
-        sh 'docker build -t avi8262/dockerdemo32 .'
+        docker build -t dockerdemo35 .
       }
     }
   }
