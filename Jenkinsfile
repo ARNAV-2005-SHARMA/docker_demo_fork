@@ -7,7 +7,7 @@ pipeline
     {
       steps
       {
-        docker build -t dockerdemo35 .
+        bat 'docker build -t dockerdemo35 .'
       }
     }
   }
