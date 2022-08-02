@@ -2,23 +2,23 @@ pipeline
 {
   agent any
   
-  environment
-  {
-    registry="public.ecr.aws/g9t7d5z8/dockerdemo"
-  }
+  //environment
+  //{
+    //registry="public.ecr.aws/g9t7d5z8/dockerdemo"
+  //}
   
   stages
   {
-    stage("Docker Build")
-    {
-      steps
-      {
-        script
-        {
-          dockerImage=docker.build registry
-        }
-      }
-    }
+    //stage("Docker Build")
+    //{
+      //steps
+      //{
+        //script
+        //{
+          //dockerImage=docker.build registry
+        //}
+      //}
+    //}
     stage("Docker Push")
     {
       steps
@@ -26,7 +26,9 @@ pipeline
         script
         {
           bat 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/g9t7d5z8'
-          bat 'docker push public.ecr.us-east-1.amazonaws.com/dockerdemo:latest'
+          bat 'docker build -t dockerdemo .'
+          bat 'docker tag dockerdemo:latest public.ecr.aws/g9t7d5z8/dockerdemo:latest'
+          bat 'docker push public.ecr.aws/g9t7d5z8/dockerdemo:latest'
         }
       }
     }
