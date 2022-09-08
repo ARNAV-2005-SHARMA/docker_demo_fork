@@ -32,6 +32,13 @@ pipeline
         }
       }
     }
+    stage("Test")
+    {
+      steps
+      {
+        bat 'python3 hello.py'
+      }
+    }
     
   }
 }
